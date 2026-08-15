@@ -14,6 +14,8 @@ function reverseArray(numbers){
     return reversed;
 }
 
+console.log(reverseArray[1, 2, 3, 4, 5]);
+
 Fehler:
 
 1. die zweite Schleife
