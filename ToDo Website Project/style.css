@@ -1,0 +1,66 @@
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.mainContent {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    width: 200px;
+    margin: 50px auto 0;
+
+    align-items: center;
+}
+
+.inputArea {
+    background-color: red;
+    margin-top: 30px;
+
+    display: flex;
+    gap: 8px;
+}
+
+.inputArea input {
+    flex: 1;
+    min-width: 0;
+}
+
+.printArea {
+    background-color: yellow;
+    margin-top: 30px;
+}
+
+
+#emptyMessage {
+    opacity: 0.5;
+    font-style: italic;
+}
+
+.deleteButton {
+    margin-left: 10px;
+}
+
+@media print {
+    .inputArea,
+    .printArea,
+    .deleteButton {
+        display: none;
+    }
+
+    body {
+        background-color: white;
+    }
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+
+
