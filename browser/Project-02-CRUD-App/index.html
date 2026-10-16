@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Posts App</title>
+</head>
+
+<body>
+
+    <h1>Posts</h1>
+
+    <button id="loadButton">
+        Posts laden
+    </button>
+
+    <p id="status">
+        Bereit.
+    </p>
+
+    <ul id="postList"></ul>
+
+
+    <h2>Neuen Post erstellen</h2>
+
+    <form id="createForm">
+
+        <input
+            id="createTitleInput"
+            type="text"
+            placeholder="Titel"
+        >
+
+        <input
+            id="createBodyInput"
+            type="text"
+            placeholder="Text"
+        >
+
+        <button type="submit">
+            Erstellen
+        </button>
+
+    </form>
+
+
+    <h2>Post bearbeiten</h2>
+
+    <form id="updateForm">
+
+        <input
+            id="updateIdInput"
+            type="number"
+            placeholder="Post-ID"
+        >
+
+        <input
+            id="updateTitleInput"
+            type="text"
+            placeholder="Neuer Titel"
+        >
+
+        <button type="submit">
+            Aktualisieren
+        </button>
+
+    </form>
+
+
+    <h2>Post löschen</h2>
+
+    <form id="deleteForm">
+
+        <input
+            id="deleteIdInput"
+            type="number"
+            placeholder="Post-ID"
+        >
+
+        <button type="submit">
+            Löschen
+        </button>
+
+    </form>
+
+    <script type="module" src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Reading List Manager</title>
+
+    <style>
+        .is-read .article-title {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        button {
+            margin-left: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Meine Leseliste</h1>
+
+    <h2>Artikel hinzufügen</h2>
+
+    <form id="articleForm">
+        <input
+            id="titleInput"
+            type="text"
+            placeholder="Artikeltitel"
+        >
+
+        <select id="categoryInput">
+            <option value="Frontend">Frontend</option>
+            <option value="APIs">APIs</option>
+            <option value="UX">UX</option>
+        </select>
+
+        <button type="submit">Hinzufügen</button>
+    </form>
+
+    <p id="feedback"></p>
+
+    <h2>Artikel durchsuchen</h2>
+
+    <input
+        id="searchInput"
+        type="text"
+        placeholder="Artikel suchen..."
+    >
+
+    <select id="statusFilter">
+        <option value="all">Alle Artikel</option>
+        <option value="open">Ungelesen</option>
+        <option value="read">Gelesen</option>
+    </select>
+
+    <p id="summary"></p>
+
+    <ul id="articleList"></ul>
+
+    <p id="emptyMessage"></p>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
