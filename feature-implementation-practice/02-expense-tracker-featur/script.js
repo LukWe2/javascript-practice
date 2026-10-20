@@ -21,6 +21,14 @@
 // ohne das data-id Attribut das mit x.dataset.id = ... automatisch erstellt wird, klicken wir z.B. den Löschen Button des HTML-Listenelements mit dem Titel "Gehalt Nebenjob" und es existiert
 // zwar ein Objekt im State Array mit demselben Titel die konzeptionell zusammengeehören, aber diese haben keine Verbindung zueinander, wenn wir aber die data-id mitgeben hat sie eine
 // könnten theoretisch auch bei einem Klick den Titel oder andere Property holen und durch das State Array gehen und vergleichen bis Objekt gefunden wurde und so das Objekt zuweisen, aber mit ID ist eleganter
+// ACHTUNG: dataset.id liefert IMMER einen String, also wenn man mit einer ID vom Typ number z.B. aus dem State Array vergleicht wie in dieser Aufgabe, muss der String aus dataset.id erst mit Number(...) in eine number umgewandelt werden
+
+// Weitere Erkenntnis aus dieser Aufgabe: haben Listener transactionList, in dem registriert wird wenn auf Bearbeiten Button geklickt wird, aber dadurch dass dies nur eine Form öffnet und nicht direkt das Objekt im State Array ändert, muss hier erst die ID gespeichert werden
+// und in einem weiteren anderen Listener editTransactionForm auf der tatsächlichen Form zum Bearbeiten diese verwendet werden die ID die vorher in dem anderen Listener festgelegt wurde
+// Ist so, weil das editTransactionForm ein "submit"-Event hat, und dieses mit const clickedLi = event.target.closest("li"); nicht das Listenelement liefert wenn man auf den Button klickt, sondern die Form an sich weil die Form zum Bearbeiten ja nicht über der Liste liegt, 
+// deswegen brauchten noch anderen Listener der erstmal die ID des Listenelements holt und die dann für die seperaten Listener zum tatsächlichen Bearbeiten und Löschen verwendet wird
+// also nicht wie in letzter Aufgabe: Form für Änderungen ist schon angezeigt und drücken des Bearbeiten Buttons liefert direkt das Objekt im State Array durch ID, sondern Bearbeiten Button öffnet erst Form, muss beim Klicken des Bearbeiten Buttons die ID wie sonst auch speichern,
+// und benutzt diese ID dann in anderem Listener für das eigentliche Bearbeiten das dann auch das Objekt im State Array ändert, was vorher direkt auf dem Bearbeiten Button war, jetzt auf dem initial "Ändernungen speichern" Button der in der initial verborgenene Form ist
 
 const transactionList = document.getElementById("transactionList");
 
