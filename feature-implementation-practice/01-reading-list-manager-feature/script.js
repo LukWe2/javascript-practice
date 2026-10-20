@@ -291,3 +291,78 @@ function updateView() {
 
 
 updateView();
+
+
+
+
+
+
+
+/*
+Wenn man Logik aus updateView() in die render-Funktion packen würde (ganze alternative Logik in script-render.js):
+
+function renderArticles() {
+    // 1. Suchbegriff und Statusfilter auslesen
+    const input = searchInput.value.toLowerCase();
+    const status = statusFiler.value;
+
+    // 2. Passende Artikel ermitteln
+    const matchingArticles = articles.filter((article) => {
+        const matchesTitle = article.title.toLowerCase().includes(input);
+
+        const matchesStatus =
+            status === "all" ||
+            (status === "open" && !article.isRead) ||
+            (status === "read" && article.isRead);
+
+        return matchesTitle && matchesStatus;
+    });
+
+    // 3. Liste leeren und passende Artikel anzeigen
+    articleList.replaceChildren();
+
+    matchingArticles.forEach((article) => {
+        const newListItem = document.createElement("li");
+        newListItem.dataset.id = article.id;
+
+        if (article.isRead) {
+            newListItem.classList.add("is-read");
+        }
+
+        const titleElement = document.createElement("span");
+        titleElement.classList.add("article-title");
+        titleElement.textContent = article.title;
+        newListItem.appendChild(titleElement);
+
+        const newListItemCategory = document.createElement("p");
+        newListItemCategory.textContent = article.category;
+        newListItem.appendChild(newListItemCategory);
+
+        const newListItemStatus = document.createElement("p");
+        newListItemStatus.textContent = article.isRead
+            ? "Gelesen"
+            : "Ungelesen";
+        newListItem.appendChild(newListItemStatus);
+
+        const switchStatusButton = document.createElement("button");
+        switchStatusButton.textContent = "Switch Status";
+        switchStatusButton.classList.add("switch-status-button");
+        newListItem.appendChild(switchStatusButton);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete Item";
+        deleteButton.classList.add("delete-button");
+        newListItem.appendChild(deleteButton);
+
+        articleList.appendChild(newListItem);
+    });
+
+    // 4. Zusammenfassung und Leermeldung aktualisieren
+    createSummary(matchingArticles, articles);
+
+    emptyMessage.textContent = matchingArticles.length === 0
+        ? "Keine passenden Artikel gefunden."
+        : "";
+}
+
+*/

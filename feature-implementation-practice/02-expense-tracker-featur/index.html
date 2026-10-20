@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <main>
+        <h1>Expense Tracker</h1>
+
+        <!-- Finanzübersicht -->
+        <section>
+            <h2>Finanzübersicht</h2>
+
+            <p>Einnahmen: <strong id="totalIncome">0,00 €</strong></p>
+            <p>Ausgaben: <strong id="totalExpenses">0,00 €</strong></p>
+            <p>Kontostand: <strong id="balance">0,00 €</strong></p>
+        </section>
+
+        <!-- Neue Buchung -->
+        <section>
+            <h2>Neue Buchung</h2>
+
+            <form id="addTransactionForm">
+
+                <label for="titleInput">Titel</label>
+                <input id="titleInput" type="text">
+
+                <label for="amountInput">Betrag (€)</label>
+                <input id="amountInput" type="number"
+                       step="0.01" min="0.01">
+
+                <label for="typeInput">Typ</label>
+                <select id="typeInput">
+                    <option value="expense">Ausgabe</option>
+                    <option value="income">Einnahme</option>
+                </select>
+
+                <label for="categoryInput">Kategorie</label>
+                <select id="categoryInput">
+                    <option value="Arbeit">Arbeit</option>
+                    <option value="Wohnen">Wohnen</option>
+                    <option value="Lebensmittel">Lebensmittel</option>
+                    <option value="Freizeit">Freizeit</option>
+                    <option value="Sonstiges">Sonstiges</option>
+                </select>
+
+                <button type="submit">Buchung hinzufügen</button>
+            </form>
+
+            <p id="feedback"></p>
+        </section>
+
+        <!-- Buchung bearbeiten -->
+        <section id="editSection" hidden>
+            <h2>Buchung bearbeiten</h2>
+
+            <form id="editTransactionForm">
+
+                <label for="editTitleInput">Titel</label>
+                <input id="editTitleInput" type="text">
+
+                <label for="editAmountInput">Betrag (€)</label>
+                <input id="editAmountInput" type="number"
+                       step="0.01" min="0.01">
+
+                <label for="editTypeInput">Typ</label>
+                <select id="editTypeInput">
+                    <option value="expense">Ausgabe</option>
+                    <option value="income">Einnahme</option>
+                </select>
+
+                <label for="editCategoryInput">Kategorie</label>
+                <select id="editCategoryInput">
+                    <option value="Arbeit">Arbeit</option>
+                    <option value="Wohnen">Wohnen</option>
+                    <option value="Lebensmittel">Lebensmittel</option>
+                    <option value="Freizeit">Freizeit</option>
+                    <option value="Sonstiges">Sonstiges</option>
+                </select>
+
+                <button type="submit">Änderungen speichern</button>
+                <button type="button" id="cancelEditButton">Abbrechen</button>
+            </form>
+        </section>
+
+        <!-- Suche und Filter -->
+        <section>
+            <h2>Buchungen filtern</h2>
+
+            <input id="searchInput" type="text"
+                   placeholder="Buchung suchen...">
+
+            <select id="typeFilter">
+                <option value="all">Alle Typen</option>
+                <option value="income">Einnahmen</option>
+                <option value="expense">Ausgaben</option>
+            </select>
+
+            <select id="categoryFilter">
+                <option value="all">Alle Kategorien</option>
+                <option value="Arbeit">Arbeit</option>
+                <option value="Wohnen">Wohnen</option>
+                <option value="Lebensmittel">Lebensmittel</option>
+                <option value="Freizeit">Freizeit</option>
+                <option value="Sonstiges">Sonstiges</option>
+            </select>
+        </section>
+
+        <!-- Buchungsliste -->
+        <section>
+            <h2>Meine Buchungen</h2>
+
+            <p id="transactionSummary"></p>
+
+            <ul id="transactionList"></ul>
+
+            <p id="emptyMessage"></p>
+        </section>
+
+    </main>
+
+</body>
+</html>
